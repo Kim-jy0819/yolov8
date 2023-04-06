@@ -76,24 +76,24 @@ pip install ultralytics
 ```bash
 yolov8/
 ├── ultralytics
-└── dataset
-      └── images
-            ├── train (*.jpg)
-            ├── valid
-            └── test
-      └── labels
-            ├── train (*.txt)
-            └── valid
-      ├── train.json
-      └── test.json
 ├── coco2yolo.py
 └── train.py
+dataset
+└── images
+      ├── train (*.jpg)
+      ├── valid
+      └── test
+└── labels
+      ├── train (*.txt)
+      └── valid
+├── train.json
+└── test.json
 ```
 
 ### convert coco json to yolo format
 ```bash
 # for example
-python coco2yolo.py -j /root/jinyoung/yolov8/dataset/train.json -o /root/jinyoung/yolov8/dataset/labels/
+python coco2yolo.py -j /root/jinyoung/dataset/train.json -o /root/jinyoung/dataset/labels/
 ```
 
 </details>
