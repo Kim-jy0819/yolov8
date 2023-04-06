@@ -63,7 +63,37 @@ all [requirements](https://github.com/ultralytics/ultralytics/blob/main/requirem
 [**PyTorch>=1.7**](https://pytorch.org/get-started/locally/).
 
 ```bash
+conda create -n yolov8 python==3.8
+conda activate yolov8
 pip install ultralytics
+```
+
+</details>
+
+<details open>
+<summary>COCO2YOLO</summary>
+
+```bash
+yolov8/
+├── ultralytics
+└── dataset
+      └── images
+            ├── train (*.jpg)
+            ├── valid
+            └── test
+      └── labels
+            ├── train (*.txt)
+            └── valid
+      ├── train.json
+      └── test.json
+├── coco2yolo.py
+└── train.py
+```
+
+### convert coco json to yolo format
+```bash
+# for example
+python coco2yolo.py -j /root/jinyoung/yolov8/dataset/train.json -o /root/jinyoung/yolov8/dataset/labels/
 ```
 
 </details>
@@ -71,22 +101,16 @@ pip install ultralytics
 <details open>
 <summary>Usage</summary>
 
-#### CLI
-
-YOLOv8 may be used directly in the Command Line Interface (CLI) with a `yolo` command:
+#### Train
 
 ```bash
-yolo predict model=yolov8n.pt source='https://ultralytics.com/images/bus.jpg'
+python train.py
 ```
-
-`yolo` can be used for a variety of tasks and modes and accepts additional arguments, i.e. `imgsz=640`. See the YOLOv8
-[CLI Docs](https://docs.ultralytics.com/usage/cli) for examples.
 
 #### Python
 
 YOLOv8 may also be used directly in a Python environment, and accepts the
 same [arguments](https://docs.ultralytics.com/usage/cfg/) as in the CLI example above:
-
 ```python
 from ultralytics import YOLO
 
