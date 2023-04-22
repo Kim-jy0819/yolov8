@@ -10,7 +10,13 @@ import numpy as np
 from collections import Counter
 from tqdm import tqdm
 from ultralytics import YOLO
+import argparse
 
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str)
+    args = parser.parse_args()
+    return args
 
 class CustomDataset(Dataset):
     def __init__(self, annotation, data_dir):
@@ -67,9 +73,11 @@ from ultralytics import YOLO
 seed = 123
 torch.manual_seed(seed)
 
+args = get_args()
+
 # Hyperparameters etc. 
 DEVICE = "cuda" if torch.cuda.is_available else "cpu" 
-LOAD_MODEL_FILE = "/root/jinyoung/ultralytics/runs/detect/train5/weights/best.pt" # inference에 사용할 model
+LOAD_MODEL_FILE = args.model # inference에 사용할 model
 
 
 def inference():
