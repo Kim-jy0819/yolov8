@@ -106,6 +106,11 @@ python coco2yolo.py -j /root/jinyoung/dataset/train.json -o /root/jinyoung/datas
 ```bash
 python train.py
 ```
+#### Inference
+```bash
+python inference.py --model <model path>
+```
+
 
 #### Python
 
